@@ -13,13 +13,11 @@ func main() {
 		data, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			http.Error(rw, "Ooopssss!!", http.StatusBadRequest)
-			/*
-				rw.WriteHeader(http.StatusBadRequest)
-				rw.Write([]byte("Ooooooooo"))
-			*/
+
 			return
 		}
 
+		fmt.Fprintf(rw, "Hello %s world \n", data)
 		fmt.Fprintf(rw, "Hello %s world \n", data)
 	})
 
